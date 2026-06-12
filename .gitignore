@@ -1,0 +1,18 @@
+# Build artifacts
+AAC_Raid_Smoother.exe
+*.pdb
+*.exe
+bin/
+obj/
+
+# Visual Studio / IDE temporary folders and files
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Embedded drivers / binaries (if downloaded locally)
+imdisk.exe
+imdisk.sys
+imdisk.inf

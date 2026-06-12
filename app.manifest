@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<assembly manifestVersion="1.0" xmlns="urn:schemas-microsoft-com:asm.v1">
+  <assemblyIdentity version="1.0.0.0" name="AAC_Optimizer.RaidSmoother.app"/>
+  
+  <!--
+    ================================================================================================
+    AAC RAID SMOOTHER - APPLICATIE MANIFEST
+    ================================================================================================
+    Dit manifest-bestand is cruciaal voor de correcte werking van de AAC Raid Smoother utility
+    onder moderne Windows-besturingssystemen (Windows Vista, 7, 8, 8.1, 10 en 11).
+
+    BELANGRIJKE WAARSCHUWING EN TOELICHTING OVER ADMINISTRATOR-RECHTEN:
+    Deze applicatie vereist strikt verhoogde rechten (Run as Administrator) om te kunnen functioneren.
+    Zonder deze escalatie blokkeert het Windows-beveiligingsmodel (User Account Control / UAC)
+    de meest kritieke onderdelen van de optimalisatie- en herstelprocessen. 
+
+    Specifiek worden de volgende acties door Windows geblokkeerd als de applicatie niet als Administrator draait:
+    1. Aanroepen van kernel-level drivers:
+       De utility communiceert rechtstreeks met de ImDisk Virtual Disk Driver (imdisk.exe).
+       Het laden van drivers en directe communicatie met kernel-objecten vereist te allen tijde 
+       volledige beheerdersrechten.
+    2. Mounten van virtuele RAM-volumes:
+       Het aanmaken, formatteren en mounten van virtuele RAM-schijven in het geheugen grijpt diep
+       in op het schijfbeheer van het besturingssysteem. Windows vereist hiervoor beheerdersrechten.
+    3. Aanmaken van directory symbolic links (mklink):
+       Het via het cmd.exe-subsysteem aanmaken van symbolische koppelingen (symbolic links) op
+       mappenniveau is om veiligheidsredenen standaard uitgeschakeld voor normale gebruikers. Dit kan
+       alleen succesvol worden uitgevoerd binnen een geëscaleerde procescontext.
+
+    Door 'level="requireAdministrator"' in te stellen, dwingen we het Windows-besturingssysteem
+    om bij het opstarten direct om UAC-toestemming te vragen. Indien de gebruiker dit weigert,
+    zal de applicatie niet starten, wat voorkomt dat deze in een half-functionerende of foutieve
+    staat geraakt.
+    ================================================================================================
+  -->
+  
+  <trustInfo xmlns="urn:schemas-microsoft-com:asm.v2">
+    <security>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!-- 
+          UAC Manifest Opties:
+          Door level="requireAdministrator" te configureren, dwingen we Windows om deze applicatie
+          altijd te starten met de hoogst mogelijke administratorrechten.
+          uiAccess="false" zorgt ervoor dat de applicatie geen UI-beperkingen van andere applicaties op het bureaublad omzeilt.
+        -->
+        <requestedExecutionLevel level="requireAdministrator" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+
+  <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
+    <application>
+      <!-- Windows 7 -->
+      <supportedOS Id="{35138b9a-5d96-4fbd-8e2d-a2440225f93a}" />
+      <!-- Windows 8 -->
+      <supportedOS Id="{4a2f28e3-53b9-4441-ba9c-d69d4a4a6e38}" />
+      <!-- Windows 8.1 -->
+      <supportedOS Id="{1f676c76-80e1-4239-95bb-83d0f6d0da78}" />
+      <!-- Windows 10 & 11 -->
+      <supportedOS Id="{8e0f7a12-bfb3-4fe8-b9a5-48fd50a15a9a}" />
+    </application>
+  </compatibility>
+
+  <!-- Schakel DPI-bewustzijn in om wazige UI op hoge resoluties (HiDPI) te voorkomen -->
+  <application xmlns="urn:schemas-microsoft-com:asm.v3">
+    <windowsSettings>
+      <dpiAware xmlns="http://schemas.microsoft.com/SMI/2005/WindowsSettings">true</dpiAware>
+      <longPathAware xmlns="http://schemas.microsoft.com/SMI/2016/WindowsSettings">true</longPathAware>
+    </windowsSettings>
+  </application>
+</assembly>
