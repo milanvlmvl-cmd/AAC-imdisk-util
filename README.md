@@ -2,6 +2,8 @@
 
 Welcome to **AAC Raid Smoother**. This guide will help you quickly and easily improve your *ArcheAge Classic* gaming performance during heavy raids by loading your shader cache directly into the system's ultra-fast RAM.
 
+For everyone who uses this, or has used this, I appreciate a quick reply to: if the game launches, I would appreciate a reply to my like 4-5 question survey as I am attempting to get this to the official launcher if possible https://docs.google.com/forms/d/1tnvsry8pSVw3CKGPqNMf6SEZYxr3PYPhEHMWNqC0XWg/edit#responses
+
 ---
 
 ## 📖 Part 1: User Guide
