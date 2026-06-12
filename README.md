@@ -11,6 +11,7 @@ Before using this tool, the **ImDisk Virtual Disk Driver** must be installed on 
 
 *   **How to install ImDisk:**
     1. Download and install the latest version of the ImDisk Virtual Disk Driver (available online for free):
+    
     Direct link to install package: https://static.ltr-data.se/files/           imdiskinst.exe
     Github: https://github.com/LTRData/ImDisk
  
